@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>template</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .box{
+            margin: 0 auto;
+            width: 800px;
+        }
+        .box>ul>li{
+            width: 80px;
+            height: 40px;
+            background-color: pink;
+            float: left;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="box">
+        <ul>
+            <li>天气</li>
+        </ul>
+    </div>
+</body>
+<script src="./js/template-native.js"></script>
+<script type="text/template" id="tem">
+    <% for(var i=0;i<list.length;i++){ %>
+        <ul>
+             <li><%=list[i]%></li>
+        </ul>
+    <% } %>
+</script>
+<script>
+    var data={
+        list:["天气","正好","下雨","阴天"]
+    };
+    var box=document.getElementById("box");
+    var html=template('tem',data)
+    box.innerHTML=html
+</script>
+
+
+
+</html>
